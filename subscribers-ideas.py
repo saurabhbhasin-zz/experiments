@@ -6,7 +6,7 @@ import logging
 
 access_token= ahatoken.token
 payload = {"idea_subscription":
-                {"email":"se_specialists@netskope.com"}
+                {"email":"email@address.com"}
           }
 headers = {"Content-Type":"application/json", "Authorization": "bearer " + access_token}
 parameters_json = json.dumps(payload)
