@@ -1,7 +1,6 @@
-#RDL100.py
+# RDL100.py
 
 import requests
-import json
 from statistics import median
 from bs4 import BeautifulSoup
 import csv
@@ -14,7 +13,6 @@ results = response2016.json()
 age2 = []
 ftime = []
 for i in results:
-        # print(i["formattime"],i["firstname"],i["lastname"])
     age2.append(i["age"])
     ftime.append(i["formattime"])
 print("The median age of athletes at RDL100 2016 was:")
@@ -25,14 +23,15 @@ print(median(ftime))
 # 2017 Stuff
 race = 'https://ultrasignup.com/entrants_event.aspx?did=42474'
 csvfile = open("all_entrants.csv", "w")
-writer = csv.writer(csvfile, delimiter = ',')
+writer = csv.writer(csvfile, delimiter=',')
 headerrow = 'Rank', 'Age Rank', 'Projected Time', 'Age Group', 'First Name', 'Last Name', 'City', 'State'
 writer.writerow(headerrow)
+
 
 def entrants_to_CSV(race):
     page = requests.get(race).text
     soup = BeautifulSoup(page, 'lxml')
-    all_entrants = soup.find("table", {"class" : "ultra_grid"})
+    all_entrants = soup.find("table", {"class": "ultra_grid"})
     for row in all_entrants.findAll('tr')[2:]:
         col = row.findAll('td')
         rank = col[0].get_text().strip()
@@ -47,4 +46,6 @@ def entrants_to_CSV(race):
         entry = rank, age_rank, projected_time, ag, fname, lname, city, state
         writer.writerow(entry)
     csvfile.close()
+
+
 entrants_to_CSV(race)
