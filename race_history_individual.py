@@ -1,4 +1,4 @@
-# get_athlete.py
+# race_history_individual.py
 import requests
 import csv
 # import pandas as pd
@@ -31,10 +31,3 @@ def get_athlete_races(url):
 
 
 get_athlete_races(url)
-
-# print("Calculating Median Place and Rank")
-# df = pd.read_csv('athlete.csv')
-# print(df.median())
-#
-# plt.hist(df.Rank)
-# plt.show()

@@ -9,7 +9,6 @@ with open("names.csv", "r") as f:
         fullname = fname + lname
         print(fullname)
         url = 'https://ultrasignup.com/service/events.svc/history/%s/%s' % (fname, lname)
-        print(url)
         athletecsv = open("%s.csv" % fullname, "w")
         writer = csv.writer(athletecsv, delimiter=",")
         writer.writerow(["Event", "Place", "Rank"])
