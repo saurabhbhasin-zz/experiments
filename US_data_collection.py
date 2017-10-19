@@ -1,26 +1,11 @@
 # RDL100.py
 
 import requests
-from statistics import median
 from bs4 import BeautifulSoup
 import csv
+import pandas as pd
 
-# 2016 Stuff
-url2016 = 'https://ultrasignup.com/service/events.svc/results/35456/json?_search=false&nd=1508212876228&rows=1500&page=1&sidx=status+asc%2C+&sord=asc'
-response2016 = requests.get(url2016)
-results = response2016.json()
-
-age2 = []
-ftime = []
-for i in results:
-    age2.append(i["age"])
-    ftime.append(i["formattime"])
-print("The median age of athletes at RDL100 2016 was:")
-print(median(age2))
-print("The median finish time of athletes at RDL100 2016 was:")
-print(median(ftime))
-
-# 2017 Stuff
+# Entrants URL for a race you're interested in
 race = 'https://ultrasignup.com/entrants_event.aspx?did=42474'
 csvfile = open("all_entrants.csv", "w")
 writer = csv.writer(csvfile, delimiter=',')
@@ -28,6 +13,7 @@ headerrow = 'Rank', 'Age Rank', 'Projected Time', 'Age Group', 'First Name', 'La
 writer.writerow(headerrow)
 
 
+# Scrape entrants list and save to CSV
 def entrants_to_CSV(race):
     page = requests.get(race).text
     soup = BeautifulSoup(page, 'lxml')
@@ -49,3 +35,8 @@ def entrants_to_CSV(race):
 
 
 entrants_to_CSV(race)
+
+# Create another file with just the names of entrants
+df = pd.read_csv("all_entrants.csv")
+df = df[["First Name", "Last Name"]]
+df.to_csv("names.csv")
