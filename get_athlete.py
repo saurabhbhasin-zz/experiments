@@ -1,6 +1,9 @@
 # get_athlete.py
 import requests
 import csv
+import pandas as pd
+import matplotlib.pyplot as plt
+
 
 # ask for name
 fname = input('Enter athlete first name:')
@@ -29,3 +32,10 @@ def get_athlete_races(url):
 
 
 get_athlete_races(url)
+
+print("Calculating Median Place and Rank")
+df = pd.read_csv('athlete.csv')
+print(df.median())
+
+plt.hist(df.Rank)
+plt.show()

@@ -1,10 +1,11 @@
 import pandas as pd
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
-df = pd.read_csv('all_entrants.csv')
-df = df[['First Name', 'Last Name', 'Projected Time']]
-print(df.head(5))
+print("Calculating Median Place and Rank")
+df = pd.read_csv('athlete.csv')
 
+plt.hist(df.Rank)
+plt.show()
 # print(df.head(5))
 # print(df.set_index('Age Group'))
 # print(df.info())
