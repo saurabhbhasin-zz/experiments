@@ -24,11 +24,3 @@ with open("names.csv", "r") as f:
                     row = eventname, place, rank
                     writer.writerow(row)
         athletecsv.close()
-
-
-# # print("Calculating Median Place and Rank")
-# # df = pd.read_csv('athlete.csv')
-# # print(df.median())
-# #
-# # plt.hist(df.Rank)
-# # plt.show()
