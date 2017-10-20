@@ -1,4 +1,4 @@
-# RDL100.py
+# US_data_collection.py
 
 import requests
 from bs4 import BeautifulSoup

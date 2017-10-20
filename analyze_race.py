@@ -1,7 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-print("Calculating Median Place and Rank")
 df = pd.read_csv('athlete.csv')
 
 plt.hist(df.Rank)
