@@ -14,7 +14,8 @@ def get_athlete_races(fname, lname):
     athlete_json = results.json()
     with open(file_name, 'w') as target:
         writer = csv.writer(target, delimiter=",")
-        writer.writerow(["Event", "Event Date", "Finish Time", "Place", "Rank"])
+        writer.writerow(["Event", "Event Date", "Finish Time", "Place", "Rank"]
+                        )
         for i in athlete_json:
             for results in i['Results']:
                 eventname = results.get('eventname')
