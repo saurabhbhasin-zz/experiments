@@ -6,3 +6,7 @@
 *.csv
 
 all_entrants.csv
+
+*.ipynb
+
+*.pyc
