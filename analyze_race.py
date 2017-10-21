@@ -1,12 +1,11 @@
 import pandas as pd
-import matplotlib.pyplot as plt
+import sklearn
 
-df = pd.read_csv('athlete.csv')
+# import matplotlib.pyplot as plt
 
-plt.hist(df.Rank)
-plt.show()
-# print(df.head(5))
-# print(df.set_index('Age Group'))
-# print(df.info())
-# subset = df[['Projected Time', 'Age Group']]
-# print(subset.head(5))
+df = pd.read_csv('Saurabh_Bhasin.csv')
+
+# plt.hist(df.Rank)
+# plt.show()
+
+print(df.median())
