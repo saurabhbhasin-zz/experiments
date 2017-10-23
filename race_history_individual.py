@@ -1,8 +1,10 @@
 # race_history_individual.py
 import requests
 import csv
+import logging
 # import pandas as pd
 # import matplotlib.pyplot as plt
+logging.basicConfig(level=logging.DEBUG)
 
 
 # get relevant data and write to file
