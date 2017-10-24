@@ -10,3 +10,5 @@ all_entrants.csv
 *.ipynb
 
 *.pyc
+
+*.gz

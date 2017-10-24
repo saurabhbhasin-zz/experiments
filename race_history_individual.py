@@ -4,7 +4,7 @@ import csv
 import logging
 # import pandas as pd
 # import matplotlib.pyplot as plt
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO, filename='race_history.log')
 
 
 # get relevant data and write to file
