@@ -7,7 +7,7 @@ import sklearn
 df = pd.read_csv('output/Saurabh_Bhasin.csv')
 # print(df)
 # print(df['Event'])
-df = df['Event'].str.split('-',expand=True)
+df = df['Event'].str.split('-', expand=True)
 print(df)
 
 # plt.hist(df.Rank)
