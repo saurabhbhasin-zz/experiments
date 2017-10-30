@@ -1,3 +1,5 @@
+# Lambda function that returns number of active BART trains
+
 import json
 from urllib import request
 
@@ -12,5 +14,4 @@ def lambda_handler(event, context):
     trains = response['root']['traincount']
     now = response['root']['time']
     # print("Received event: " + json.dumps(event, indent=2))
-    # return(trains)
     return(trains + ' active BART trains at ' + now)

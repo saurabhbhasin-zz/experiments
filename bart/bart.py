@@ -1,3 +1,5 @@
+# Simple script to play with the BART api
+
 import requests
 
 # Key and Developer Info at: http://api.bart.gov/docs/overview/index.aspx
