@@ -37,4 +37,4 @@ if r1.status_code == 200:
             logging.info(row)
 else:
     print("Invalid REST API Response. See log for details")
-    logging.ingo(r1.status_code)
+    logging.info(r1.status_code)
