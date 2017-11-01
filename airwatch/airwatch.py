@@ -35,6 +35,7 @@ if r1.status_code == 200:
             row = i["UserName"], i["UserEmailAddress"], i["SerialNumber"], i["Model"], i["DeviceFriendlyName"], i["EnrollmentStatus"]
             writer.writerow(row)
             logging.info(row)
+    target.close()
 else:
     print("Invalid REST API Response. See log for details")
     logging.info(r1.status_code)
