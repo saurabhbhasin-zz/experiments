@@ -1,8 +1,17 @@
+# Get devices from Airwatch
+
+# To use this, you must fill out:
+# 1. Your Airwatch tenant host
+# 2. Your REST API Key
+# 3. Username and Password for Basic Authentication
+
 import requests
 import logging
 import csv
 
-url = "https://techp.awmdm.com/api/mdm/devices/search?pagesize=1000"
+host = "https://YOURTENANT.awmdm.com"
+endpoint = "/api/mdm/devices/search?pagesize=1000"
+url = host + endpoint
 key = "YOUR REST API KEY"
 headers = {"aw-tenant-code": key, "Accept": "application/json", "Content-Type":
            "application/json"}
