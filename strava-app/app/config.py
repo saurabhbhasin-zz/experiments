@@ -1,1 +1,0 @@
-client_secret = 'c15e1e0820435940d2042a7b11954cdc1c53ed76'
