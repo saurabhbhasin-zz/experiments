@@ -18,3 +18,5 @@ app-strava/app/config.py
 ultrasignup/convert.py.original
 
 *.json
+
+*.bak

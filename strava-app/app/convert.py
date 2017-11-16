@@ -1,6 +1,6 @@
 # convert.py
 import googlemaps
-api_key = 'AIzaSyD2uJOj1fv9l2Dv1_Srr_mvQI36X5852vs'
+api_key = ''
 
 
 def getLat(zipcode):
