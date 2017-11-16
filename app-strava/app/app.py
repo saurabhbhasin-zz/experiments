@@ -12,8 +12,6 @@ client = Client()
 
 @app.route('/')
 def homepage():
-    # text = '<a href="%s">Authenticate with Strava</a>'
-    # return text % make_authorization_url()
     url = make_authorization_url()
     return render_template('index.html', url=url)
 
