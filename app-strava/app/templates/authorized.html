@@ -3,7 +3,32 @@
     <title>Strava App</title>
   </head>
   <body>
-      <h1>Hello, {{ name }}!</h1>
       <p><img src= "{{ pic }}"</img></p>
+      <p>Hi, {{ name }}!</p>
+      <p>You have {{ follower_count }} followers</p>
+      <button onclick="getLocation()">Get Location</button>
+      <div id="output"></div>
+      <script src="http://code.jquery.com/jquery-2.2.4.min.js">
+      </script>
+      <script>
+        var x = document.getElementById("output");
+        function getLocation(){
+          if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showPosition);
+          }
+          else {
+            x.innerHTML = "Unsupported Browser"
+          }
+        }
+        function showPosition(position){
+          x.innerHTML = "Latitude: " + position.coords.latitude +
+          "<br>Longitude: " + position.coords.longitude;
+        }
+        // $.post("/app",{
+        //   l1:position.coords.latitude,
+        //   l2:position.coords.longitude);
+        // }
+        </script>
+        <p><img src="https://storage.googleapis.com/mtn-runr.appspot.com/api_logo_pwrdBy_strava_horiz_light.png"</img></p>
   </body>
 </html>
