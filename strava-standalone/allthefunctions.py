@@ -27,10 +27,13 @@ def getAthlete(athlete_id):
 
 
 def allEfforts(segment_id):
-    url = https://www.strava.com/api/v3/segments/%s/all_efforts % (segment_id)
-    r = requests.get(url, headers=headers)
+    url = 'https://www.strava.com/api/v3/segments/%s/all_efforts' % (segment_id)
+    payload = {"athlete_id": athlete_id}
+    r = requests.get(url, headers=headers, params=payload)
     response = r.json()
-    print(response)
+    print(len(response))
+    for i in response:
+        print i['activity']['id']
 
 
 def getStats(athlete_id):
