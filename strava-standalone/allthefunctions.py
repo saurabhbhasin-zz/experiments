@@ -9,6 +9,7 @@ athlete = r.json()
 # print(athlete)
 athlete_id = athlete["id"]
 logging.info(athlete_id)
+segment_id = 3991086
 
 
 def getAthlete(athlete_id):
@@ -23,6 +24,13 @@ def getAthlete(athlete_id):
     #     c.append(i["id"])
     # return c
     return athlete
+
+
+def allEfforts(segment_id):
+    url = https://www.strava.com/api/v3/segments/%s/all_efforts % (segment_id)
+    r = requests.get(url, headers=headers)
+    response = r.json()
+    print(response)
 
 
 def getStats(athlete_id):
@@ -90,4 +98,5 @@ def getFollowers(athlete_id):
 # getClubs(club_id)
 # getActivities(athlete_id)
 # getFollowers(athlete_id)
-getSegmentLeaderboard(3991086)
+# getSegmentLeaderboard(3991086)
+allEfforts(segment_id)

@@ -37,8 +37,6 @@ segment = client.get_segment(segment_id)
 #     effort.append(row)
 # print(effort)
 
-stats = client.AthleteSegmentStats()
-print(stats)
 
 # db_filename = 'followers.db'
 # conn = sqlite.connect(db_filename)
