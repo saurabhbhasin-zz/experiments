@@ -1,12 +1,12 @@
 from __future__ import print_function
-# import json
+import json
 import requests
 from stravalib.client import Client
+# import pprint
 #import sqlite3 as sqlite
 
 client = Client()
 authorize_url = client.authorization_url(client_id=15271, redirect_uri='http://localhost')
-#mytoken = '203ab78f308e6fafc51df06116efa86774acc7ea'
 
 # Extract the code from your webapp response
 code = requests.get(authorize_url)
@@ -23,10 +23,10 @@ athlete = client.get_athlete()
 # f_act = client.get_friend_activities()
 # for i in f_act:
 #     print(i)
-
+# print(athlete.id)
 # print("All time total runs: {total_runs}".format(total_runs=athlete.stats.all_run_totals.count))
 segment_id = 3991086
-segment = client.get_segment(segment_id)
+# segment = client.get_segment(segment_id)
 # print("Segment Name: {name} ".format(name=segment.name))
 # print(segment.distance)
 # print("Average Grade: {grade}%".format(grade=segment.average_grade))
@@ -37,6 +37,38 @@ segment = client.get_segment(segment_id)
 #     effort.append(row)
 # print(effort)
 
+
+def interestingSegment(segment_id):
+    segment = client.get_segment(segment_id)
+    leaderboard = []
+    lb_athlete_id = []
+    for i in segment.leaderboard.entries:
+        leaderboardlist = i
+        leaderboard.append(leaderboardlist)
+        lb_athlete_id.append(i.athlete_id)
+    for athlete in lb_athlete_id:
+        ath_seg_efforts = client.get_segment_efforts(segment_id, athlete_id=athlete)
+        activities_of_athlete_for_segment = []
+        dictionaries = {athlete: activities_of_athlete_for_segment for x in lb_athlete_id}
+        for each in ath_seg_efforts:
+            row = each.activity.id
+            activities_of_athlete_for_segment.append(row)
+            # print(activities_of_athlete_for_segment)
+        # print(dictionaries)
+        print(json.dumps(dictionaries))
+
+
+interestingSegment(segment_id)
+
+# ath_seg_efforts_list = []
+# ath_seg_efforts = client.get_segment_efforts(segment_id, athlete_id=athlete.id)
+# for each in ath_seg_efforts:
+#     # row = athlete, each.activity.id
+#     row = each.activity.id
+#     ath_seg_efforts_list.append(row)
+# print(len(ath_seg_efforts_list))
+# print(athlete.id)
+# print(ath_seg_efforts_list)
 
 # db_filename = 'followers.db'
 # conn = sqlite.connect(db_filename)
