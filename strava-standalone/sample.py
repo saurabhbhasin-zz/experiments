@@ -46,16 +46,17 @@ def interestingSegment(segment_id):
         leaderboardlist = i
         leaderboard.append(leaderboardlist)
         lb_athlete_id.append(i.athlete_id)
+    dictionaries = {}
     for athlete in lb_athlete_id:
         ath_seg_efforts = client.get_segment_efforts(segment_id, athlete_id=athlete)
         activities_of_athlete_for_segment = []
-        dictionaries = {athlete: activities_of_athlete_for_segment for x in lb_athlete_id}
+        # dictionaries = {athlete: activities_of_athlete_for_segment for x in lb_athlete_id}
         for each in ath_seg_efforts:
             row = each.activity.id
             activities_of_athlete_for_segment.append(row)
-            # print(activities_of_athlete_for_segment)
-        # print(dictionaries)
-        print(json.dumps(dictionaries))
+        dictionaries[athlete] = activities_of_athlete_for_segment
+    print(dictionaries)
+        # print(json.dumps(dictionaries))
 
 
 interestingSegment(segment_id)
