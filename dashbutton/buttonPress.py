@@ -28,7 +28,7 @@ def getEnv():
 def sendToIfttt():
     environment = getEnv()
     timestamp = time.strftime("%Y-%m-%d %H:%M")
-    mac_addr = '18:74:2E:12:A5:56'
+    mac_addr = 'XX:XX:XX:XX:XX:XX'
     payload = {
                 'value1': environment,
                 'value2': timestamp,
