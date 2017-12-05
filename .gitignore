@@ -16,3 +16,5 @@ ultrasignup/convert.py.original
 *.json
 
 *.bak
+
+strava-standalone/sample.py
